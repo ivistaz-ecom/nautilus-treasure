@@ -177,9 +177,9 @@ export default function QASession() {
           <h2 className="text-2xl font-bold text-green-600 mb-4">
             ✅ Thank You for Your Submission!
           </h2>
-          <p className="mb-4">Here's a summary of your answers:</p>
+          <p className="mb-4">Here&apos;s a summary of your answers:</p>
 
-          <div className="text-left grid grid-cols-2 gap-7">
+          <div className="text-left grid grid-cols-2 gap-7 text-black">
             {questions.map((question) => {
               const isCorrect =
                 selectedAnswers[question.id] === question.correctAnswer;
