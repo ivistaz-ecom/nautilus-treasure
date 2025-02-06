@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation"; // Import useRouter
 
+import CountUp from "react-countup";
 export default function Page2() {
   const router = useRouter(); // Initialize the router
 
@@ -36,7 +37,8 @@ export default function Page2() {
           {/* Main Content */}
           <div>
             <h1 className="text-[40px] md:text-[50px] font-bold">
-              Can you find all the 4 hidden costs?
+              Can you find all the <CountUp end={4} duration={3} /> hidden
+              costs?
             </h1>
             <div className="flex justify-center">
               <Image
@@ -49,7 +51,7 @@ export default function Page2() {
 
             <button
               onClick={handleStart}
-              className="bg-[#008E9C] mt-10 hover:bg-[#fff] text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-6 py-3 rounded-full transition shadow-md"
+              className="bg-[#008E9C] mt-10 border hover:border-[#008E9C] hover:bg-[#fff] over:border-[#008E9C] text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-6 py-3 rounded-full transition shadow-md"
             >
               Start the Game
             </button>
@@ -57,15 +59,15 @@ export default function Page2() {
         </div>
 
         {/* Navigation Buttons - Centered at the bottom */}
-        <div className="flex justify-between gap-4 mb-8">
-          {/* Back Button */}
+        {/* <div className="flex justify-between gap-4 mb-8">
+         
           <button
             onClick={handleBack}
-            className="bg-[#008E9C] hover:bg-[#fff] text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-6 py-3 rounded-full transition shadow-md"
+            className="bg-[#008E9C] hover:bg-[#fff] border text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-6 py-3 rounded-full transition shadow-md"
           >
             Back
           </button>
-        </div>
+        </div> */}
 
         <Image
           src="/corner.svg"

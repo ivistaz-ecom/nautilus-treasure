@@ -1,8 +1,27 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation"; // Import useRouter
+import { useState, useEffect } from "react"
 
 export default function Page2() {
+  
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const target = 0.5; // 0.5 million USD
+    const duration = 500; // duration in ms
+    const startTime = performance.now();
+
+    const updateCount = (timestamp) => {
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      setCount(progress * target);
+      if (progress < 1) {
+        requestAnimationFrame(updateCount);
+      }
+    };
+
+    requestAnimationFrame(updateCount);
+  }, []);
   const router = useRouter(); // Initialize the router
 
   // Function to handle navigation to the next page
@@ -40,8 +59,8 @@ export default function Page2() {
             </p>
            
             <h1 className="text-[40px] md:text-[70px] font-bold">
-              0.5 million USD
-            </h1>
+      {count.toFixed(1)} million USD
+    </h1>
 
             <p className="text-[18px] md:text-[30px]">
               for each vessel
@@ -54,7 +73,7 @@ export default function Page2() {
           {/* Back Button */}
           <button
             onClick={handleBack}
-            className="bg-[#008E9C] hover:bg-[#fff] text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-6 py-3 rounded-full transition shadow-md"
+            className="bg-[#008E9C] border hover:border-[#008E9C] hover:bg-[#fff] text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-6 py-3 rounded-full transition shadow-md"
           >
             Back
           </button>
@@ -62,7 +81,7 @@ export default function Page2() {
           {/* Next Button */}
           <button
             onClick={handleNext}
-            className="bg-[#008E9C] hover:bg-[#fff] text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-6 py-3 rounded-full transition shadow-md"
+            className="bg-[#008E9C] border hover:border-[#008E9C] hover:bg-[#fff] text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-6 py-3 rounded-full transition shadow-md"
           >
             Next
           </button>

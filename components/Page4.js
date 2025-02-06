@@ -36,22 +36,20 @@ export default function Page4() {
 
           {/* Main Content */}
           <div>
-            <Game/>
+            <Game />
           </div>
-          
         </div>
 
         {/* Navigation Buttons - Centered at the bottom */}
-      
-        <div className="flex justify-between gap-4 mb-8">
-          {/* Back Button */}
+
+        {/* <div className="flex justify-between gap-4 mb-8">
           <button
             onClick={handleBack}
             className="bg-[#008E9C] hover:bg-[#fff] text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-6 py-3 rounded-full transition shadow-md"
           >
             Back
           </button>
-        </div>
+        </div> */}
         <Image
           src="/corner.svg"
           width={50}

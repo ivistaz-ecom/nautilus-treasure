@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation"; // Import useRouter
+import CountUp from "react-countup";
 
 export default function Congratulations() {
   const router = useRouter(); // Initialize the router
@@ -53,26 +54,17 @@ export default function Congratulations() {
             <p className="text-[18px] md:text-[30px]">You have found over</p>
 
             <h1 className="text-[40px] md:text-[70px] font-bold">
-              18% of hidden costs
+            <CountUp end={18} suffix="%" duration={3} /> of hidden costs
             </h1>
             <p className="text-[18px] md:text-[30px]">in crew management</p>
           </div>
         </div>
 
         {/* Navigation Buttons - Centered at the bottom */}
-        <div className="flex justify-between gap-4 mb-8">
-          {/* Back Button */}
-          {/* <button
-            onClick={handleBack}
-            className="bg-[#008E9C] hover:bg-[#fff] text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-6 py-3 rounded-full transition shadow-md"
-          >
-            Back
-          </button> */}
-
-          {/* Next Button */}
+        <div className="flex justify-end gap-4 mb-8">
           <button
             onClick={handleNext}
-            className="bg-[#008E9C] hover:bg-[#fff] text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-6 py-3 rounded-full transition shadow-md"
+            className="bg-[#008E9C] hover:border-[#008E9C] hover:bg-[#fff] border text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-6 py-3 rounded-full transition shadow-md"
           >
             Next
           </button>

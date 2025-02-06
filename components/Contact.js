@@ -1,18 +1,13 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation"; // Import useRouter
-
+import { IoIosPlay } from "react-icons/io";
 export default function Contact() {
   const router = useRouter(); // Initialize the router
 
-  // Function to handle navigation to the next page
-  const handleNext = () => {
-    router.push("/contact-us"); // Navigates to page3.js (or any other page)
-  };
-
   // Function to handle navigation back to the previous page
   const handleBack = () => {
-    router.push("/"); // Navigates back to the home page (or any other page)
+    router.push("/page4"); // Navigates back to the home page (or any other page)
   };
 
   return (
@@ -40,28 +35,34 @@ export default function Contact() {
             <p className="text-[18px] md:text-[30px]">
               Let’s find out how we can reduce these for you
             </p>
-            <p className="text-[18px] md:text-[30px]">Scan Now</p>
-          </div>
-        </div>
 
-        {/* Navigation Buttons - Centered at the bottom */}
-        <div className="flex justify-between gap-4 mb-8">
+            <div className="flex flex-col justify-center mb-8 items-center mt-10">
+              <p className="text-[18px] md:text-[30px]">Scan Now</p>
+              <Image
+                src="/qr-contact.jpeg"
+                width={200}
+                height={200}
+                alt="Logo"
+                className="pt-5"
+              />
+            </div>
+            {/* Navigation Buttons - Centered at the bottom */}
+        <div className="flex justify-center gap-4 mb-8">
           {/* Back Button */}
           <button
             onClick={handleBack}
-            className="bg-[#008E9C] hover:bg-[#fff] text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-6 py-3 rounded-full transition shadow-md"
+            className="bg-[#008E9C] hover:border-[#008E9C] border hover:bg-[#fff] text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-5 py-2 rounded-full transition shadow-md"
           >
-            Back
-          </button>
-
-          {/* Next Button */}
-          <button
-            onClick={handleNext}
-            className="bg-[#008E9C] hover:bg-[#fff] text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-6 py-3 rounded-full transition shadow-md"
-          >
-            Next
+            <span className="flex gap-2 items-center">
+              <IoIosPlay />
+              Play Again
+            </span>
           </button>
         </div>
+          </div>
+        </div>
+
+        
 
         <Image
           src="/corner.svg"
