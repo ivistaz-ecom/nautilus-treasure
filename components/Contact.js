@@ -32,7 +32,7 @@ export default function Contact() {
           <div>
             <h1 className="text-[40px] md:text-[70px] font-bold">Contact Us</h1>
 
-            <p className="text-[18px] md:text-[30px]">
+            <p className="text-[18px] md:text-[25px]">
               Let’s find out how we can reduce these for you
             </p>
 

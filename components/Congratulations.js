@@ -1,20 +1,29 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Import useRouter
+import { useRouter } from "next/navigation";
 import CountUp from "react-countup";
+import { useEffect, useState } from "react";
 
 export default function Congratulations() {
-  const router = useRouter(); // Initialize the router
+  const router = useRouter();
+
+  // State to manage the visibility of the second text block
+  const [showPercentage, setShowPercentage] = useState(false);
+
+  useEffect(() => {
+    // Show the percentage text after 3 seconds
+    const timer = setTimeout(() => {
+      setShowPercentage(true);
+    }, 2000);
+
+    // Clear the timer on component unmount
+    return () => clearTimeout(timer);
+  }, []);
 
   // Function to handle navigation to the next page
   const handleNext = () => {
-    router.push("/contact-us"); // Navigates to page3.js (or any other page)
-  };
-
-  // Function to handle navigation back to the previous page
-  const handleBack = () => {
-    router.push("/"); // Navigates back to the home page (or any other page)
+    router.push("/contact-us");
   };
 
   return (
@@ -23,45 +32,47 @@ export default function Congratulations() {
       <div className="bg-[#00222F] w-full lg:max-w-[50%] text-white absolute text-center rounded-lg p-10 flex flex-col justify-between h-[100vh]">
         {/* Logo */}
         <div className="flex justify-end mb-8">
-          <Link href="/"><Image src="/logo.svg" width={80} height={80} alt="Logo" /></Link>
+          <Link href="/">
+            <Image src="/logo.svg" width={80} height={80} alt="Logo" />
+          </Link>
         </div>
         <div className="flex flex-col justify-center items-center flex-grow">
-          {/* <Image
-            src="/corner.svg"
-            width={100}
-            height={100}
-            alt="Top Left Design"
-            className="absolute top-0 left-0"
-          /> */}
-
           {/* Main Content */}
           <div>
             <div className="flex justify-center">
               <Image
-              alt="coin"
+                alt="coin"
                 src="/coin.svg"
                 width={100}
                 height={100}
                 className="animate-spin-slow"
               />
             </div>
-            <h1 className="text-[40px] md:text-[70px] font-bold">
+            <h1 className="text-[40px] md:text-[70px] font-bold animate-bounce">
               Congratulations
             </h1>
 
+            {/* First Message */}
             <p className="text-[18px] md:text-[30px]">
-              on finding all the hidden costs !
+              on finding all the hidden costs!
             </p>
-            <p className="text-[18px] md:text-[30px]">You have found over</p>
 
-            <h1 className="text-[40px] md:text-[70px] font-bold">
-              <CountUp end={18} suffix="%" duration={3} /> of hidden costs
-            </h1>
-            <p className="text-[18px] md:text-[30px]">in crew management</p>
+            {/* Show this block after 3 seconds */}
+            {showPercentage ? (
+              <>
+                <p className="text-[18px] md:text-[30px]">
+                  You have found over
+                </p>
+                <h1 className="text-[40px] md:text-[70px] font-bold">
+                  <CountUp end={18} suffix="%" duration={3} /> of hidden costs
+                </h1>
+                <p className="text-[18px] md:text-[30px]">in crew management</p>
+              </>
+            ) : null}
           </div>
         </div>
 
-        {/* Navigation Buttons - Centered at the bottom */}
+        {/* Navigation Buttons */}
         <div className="flex justify-end gap-4 mb-8">
           <button
             onClick={handleNext}
@@ -70,14 +81,6 @@ export default function Congratulations() {
             Next
           </button>
         </div>
-
-        {/* <Image
-          src="/corner.svg"
-          width={50}
-          height={100}
-          alt="Bottom Right Design"
-          className="absolute bottom-0 right-0"
-        /> */}
       </div>
     </div>
   );

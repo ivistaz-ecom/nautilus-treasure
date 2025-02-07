@@ -6,7 +6,11 @@ import { useRouter } from "next/navigation";
 
 export default function Game() {
   const [revealedCoins, setRevealedCoins] = useState([null, null, null, null]);
-  const [tooltip, setTooltip] = useState({ visible: false, text: "", position: {} });
+  const [tooltip, setTooltip] = useState({
+    visible: false,
+    text: "",
+    position: {},
+  });
   const [timeLeft, setTimeLeft] = useState(60); // 1 minute in seconds
   const router = useRouter();
 
@@ -55,7 +59,6 @@ export default function Game() {
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => prevTime - 1);
     }, 1000);
-    
 
     return () => clearInterval(timer); // Cleanup interval on unmount
   }, [timeLeft, router]);
@@ -65,9 +68,17 @@ export default function Game() {
 
   // Timer color based on time remaining
   const timerColor =
-    timeLeft > 40 ? "text-green-500" : timeLeft > 20 ? "text-yellow-500" : "text-red-500";
+    timeLeft > 40
+      ? "text-green-500"
+      : timeLeft > 20
+      ? "text-yellow-500"
+      : "text-red-500";
   const progressColor =
-    timeLeft > 40 ? "stroke-green-500" : timeLeft > 20 ? "stroke-yellow-500" : "stroke-red-500";
+    timeLeft > 40
+      ? "stroke-green-500"
+      : timeLeft > 20
+      ? "stroke-yellow-500"
+      : "stroke-red-500";
 
   // Format time as MM:SS
   const formatTime = (seconds) => {
@@ -182,7 +193,7 @@ export default function Game() {
                 {/* Tooltip */}
                 {tooltip.visible && (
                   <div
-                    className="absolute bg-white text-[#00222F] text-[12px]  px-3 py-1 rounded-md flex justify-center items-center"
+                    className="absolute hidden lg:block bg-white text-[#00222F] text-[12px]  px-3 py-1 rounded-md flex justify-center items-center"
                     style={{
                       top: `calc(${tooltip.position.top} - 30px)`,
                       left: `calc(${tooltip.position.left} - 10px)`,
