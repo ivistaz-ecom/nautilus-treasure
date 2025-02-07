@@ -11,14 +11,25 @@ export default function Congratulations() {
   // State to manage the visibility of the second text block
   const [showPercentage, setShowPercentage] = useState(false);
 
+  // State to manage the visibility of the "Next" button
+  const [showNextButton, setShowNextButton] = useState(false);
+
   useEffect(() => {
     // Show the percentage text after 3 seconds
-    const timer = setTimeout(() => {
+    const percentageTimer = setTimeout(() => {
       setShowPercentage(true);
-    }, 2000);
 
-    // Clear the timer on component unmount
-    return () => clearTimeout(timer);
+      // Show the "Next" button after an additional 3 seconds
+      const buttonTimer = setTimeout(() => {
+        setShowNextButton(true);
+      }, 2000);
+
+      // Cleanup button timer
+      return () => clearTimeout(buttonTimer);
+    }, 1000);
+
+    // Cleanup percentage timer
+    return () => clearTimeout(percentageTimer);
   }, []);
 
   // Function to handle navigation to the next page
@@ -48,7 +59,7 @@ export default function Congratulations() {
                 className="animate-spin-slow"
               />
             </div>
-            <h1 className="text-[40px] md:text-[70px] font-bold animate-bounce">
+            <h1 className="text-[40px] md:text-[70px] font-bold">
               Congratulations
             </h1>
 
@@ -66,21 +77,25 @@ export default function Congratulations() {
                 <h1 className="text-[40px] md:text-[70px] font-bold">
                   <CountUp end={18} suffix="%" duration={3} /> of hidden costs
                 </h1>
-                <p className="text-[18px] md:text-[30px]">in crew management</p>
+                <p className="text-[18px] md:text-[30px]">
+                  in crew management
+                </p>
               </>
             ) : null}
           </div>
         </div>
 
-        {/* Navigation Buttons */}
-        <div className="flex justify-end gap-4 mb-8">
-          <button
-            onClick={handleNext}
-            className="bg-[#008E9C] hover:border-[#008E9C] hover:bg-[#fff] border text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-6 py-3 rounded-full transition shadow-md"
-          >
-            Next
-          </button>
-        </div>
+        {/* Show Next Button after the second text is displayed */}
+        {showNextButton && (
+          <div className="flex justify-end gap-4 mb-8">
+            <button
+              onClick={handleNext}
+              className="bg-[#008E9C] hover:border-[#008E9C] hover:bg-[#fff] border text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-6 py-3 rounded-full transition shadow-md"
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
