@@ -39,7 +39,7 @@ export default function Contact() {
             <div className="flex flex-col justify-center mb-8 items-center mt-10">
               <p className="text-[18px] md:text-[30px]">Scan Now</p>
               <Image
-                src="/qr-contact.jpeg"
+                src="/google-qr.png"
                 width={200}
                 height={200}
                 alt="Logo"
