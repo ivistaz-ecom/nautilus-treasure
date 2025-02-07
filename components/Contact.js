@@ -10,6 +10,9 @@ export default function Contact() {
   const handleBack = () => {
     router.push("/page4"); // Navigates back to the home page (or any other page)
   };
+  const handleHome = () => {
+    router.push("/"); // Navigates back to the home page (or any other page)
+  };
 
   return (
     <div className="bg-cover bg-center bg-[url('/home_banner.jpeg')] min-h-screen flex justify-center items-center">
@@ -56,6 +59,15 @@ export default function Contact() {
             <span className="flex gap-2 items-center">
               <IoIosPlay />
               Play Again
+            </span>
+          </button>
+          <button
+            onClick={handleHome}
+            className="bg-[#008E9C] hover:border-[#008E9C] border hover:bg-[#fff] text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-5 py-2 rounded-full transition shadow-md"
+          >
+            <span className="flex gap-2 items-center">
+              {/* <IoIosPlay /> */}
+              Back To Home
             </span>
           </button>
         </div>
