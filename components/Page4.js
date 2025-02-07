@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation"; // Import useRouter
 import Game from "./Game";
+import Link from "next/link";
 
 export default function Page4() {
   const router = useRouter(); // Initialize the router
@@ -21,17 +22,17 @@ export default function Page4() {
       {/* Content Section */}
       <div className="bg-[#00222F] w-full lg:max-w-[50%] text-white absolute text-center rounded-lg p-10 flex flex-col justify-between h-[100vh] container mx-auto">
         <div className="flex flex-col justify-center items-center flex-grow">
-          <Image
+          {/* <Image
             src="/corner.svg"
             width={100}
             height={100}
             alt="Top Left Design"
             className="absolute top-0 left-0"
-          />
+          /> */}
 
           {/* Logo */}
           <div className="flex justify-center mb-8">
-            <Image src="/logo.svg" width={80} height={80} alt="Logo" />
+          <Link href="/"><Image src="/logo.svg" width={80} height={80} alt="Logo" /></Link>
           </div>
 
           {/* Main Content */}
@@ -50,13 +51,13 @@ export default function Page4() {
             Back
           </button>
         </div> */}
-        <Image
+        {/* <Image
           src="/corner.svg"
           width={50}
           height={100}
           alt="Bottom Right Design"
           className="absolute bottom-0 right-0"
-        />
+        /> */}
       </div>
     </div>
   );

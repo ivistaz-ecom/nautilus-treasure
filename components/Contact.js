@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation"; // Import useRouter
 import { IoIosPlay } from "react-icons/io";
 export default function Contact() {
@@ -14,19 +15,18 @@ export default function Contact() {
     <div className="bg-cover bg-center bg-[url('/home_banner.jpeg')] min-h-screen flex justify-center items-center">
       {/* Content Section */}
       <div className="bg-[#00222F] w-full lg:max-w-[50%] text-white absolute text-center rounded-lg p-10 flex flex-col justify-between h-[100vh]">
+         {/* Logo */}
+         <div className="flex justify-end mb-8">
+         <Link href="/"><Image src="/logo.svg" width={80} height={80} alt="Logo" /></Link>
+          </div>
         <div className="flex flex-col justify-center items-center flex-grow">
-          <Image
+          {/* <Image
             src="/corner.svg"
             width={100}
             height={100}
             alt="Top Left Design"
             className="absolute top-0 left-0"
-          />
-
-          {/* Logo */}
-          <div className="flex justify-center mb-8">
-            <Image src="/logo.svg" width={80} height={80} alt="Logo" />
-          </div>
+          /> */}
 
           {/* Main Content */}
           <div>
@@ -64,13 +64,13 @@ export default function Contact() {
 
         
 
-        <Image
+        {/* <Image
           src="/corner.svg"
           width={50}
           height={100}
           alt="Bottom Right Design"
           className="absolute bottom-0 right-0"
-        />
+        /> */}
       </div>
     </div>
   );

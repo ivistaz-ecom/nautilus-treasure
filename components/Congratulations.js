@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation"; // Import useRouter
 import CountUp from "react-countup";
 
@@ -20,24 +21,24 @@ export default function Congratulations() {
     <div className="bg-cover bg-center bg-[url('/home_banner.jpeg')] min-h-screen flex justify-center items-center">
       {/* Content Section */}
       <div className="bg-[#00222F] w-full lg:max-w-[50%] text-white absolute text-center rounded-lg p-10 flex flex-col justify-between h-[100vh]">
+        {/* Logo */}
+        <div className="flex justify-end mb-8">
+          <Link href="/"><Image src="/logo.svg" width={80} height={80} alt="Logo" /></Link>
+        </div>
         <div className="flex flex-col justify-center items-center flex-grow">
-          <Image
+          {/* <Image
             src="/corner.svg"
             width={100}
             height={100}
             alt="Top Left Design"
             className="absolute top-0 left-0"
-          />
-
-          {/* Logo */}
-          <div className="flex justify-center mb-8">
-            <Image src="/logo.svg" width={80} height={80} alt="Logo" />
-          </div>
+          /> */}
 
           {/* Main Content */}
           <div>
-          <div className="flex justify-center">
+            <div className="flex justify-center">
               <Image
+              alt="coin"
                 src="/coin.svg"
                 width={100}
                 height={100}
@@ -54,7 +55,7 @@ export default function Congratulations() {
             <p className="text-[18px] md:text-[30px]">You have found over</p>
 
             <h1 className="text-[40px] md:text-[70px] font-bold">
-            <CountUp end={18} suffix="%" duration={3} /> of hidden costs
+              <CountUp end={18} suffix="%" duration={3} /> of hidden costs
             </h1>
             <p className="text-[18px] md:text-[30px]">in crew management</p>
           </div>
@@ -70,13 +71,13 @@ export default function Congratulations() {
           </button>
         </div>
 
-        <Image
+        {/* <Image
           src="/corner.svg"
           width={50}
           height={100}
           alt="Bottom Right Design"
           className="absolute bottom-0 right-0"
-        />
+        /> */}
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ export default function Game() {
   const router = useRouter();
 
   const handleContact = () => {
-    router.push("/page5"); // Navigate to page5
+    router.push("/hidden-cost"); // Navigate to page5
   };
 
   // Tooltip texts for each coin
@@ -48,13 +48,14 @@ export default function Game() {
   // Timer functionality
   useEffect(() => {
     if (timeLeft <= 0) {
-      router.push("/page5"); // Automatically navigate to the next page
+      router.push("/hidden-cost"); // Automatically navigate to the next page
       return;
     }
 
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => prevTime - 1);
     }, 1000);
+    
 
     return () => clearInterval(timer); // Cleanup interval on unmount
   }, [timeLeft, router]);
@@ -120,7 +121,7 @@ export default function Game() {
         {revealedCoins.map((coinIndex, index) => (
           <div
             key={index}
-            className="w-12 h-12 border-2 rounded-full flex justify-center items-center"
+            className="w-12 h-12  rounded-full flex justify-center items-center"
           >
             {coinIndex !== null ? (
               <Image
@@ -128,7 +129,7 @@ export default function Game() {
                 width={32}
                 height={32}
                 alt="Coin"
-                className="w-10 h-10"
+                className="w-10 h-10 scale-125 duration-500 transition-all"
               />
             ) : (
               <div className="w-10 h-10 bg-white rounded-full"></div>
@@ -144,7 +145,7 @@ export default function Game() {
             <TransformComponent>
               <div className="relative">
                 <Image
-                  src="/game-ship.svg"
+                  src="/game.svg"
                   width={600}
                   height={900}
                   alt="Game Scene"
