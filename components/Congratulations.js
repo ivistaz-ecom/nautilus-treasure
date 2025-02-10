@@ -38,7 +38,7 @@ export default function Congratulations() {
   };
 
   return (
-    <div className="bg-cover bg-center bg-[url('/home_banner.jpeg')] min-h-screen flex justify-center items-center">
+    <div className="bg-cover bg-[#00222F] min-h-screen flex justify-center items-center">
       {/* Content Section */}
       <div className="bg-[#00222F] w-full lg:max-w-[50%] text-white absolute text-center rounded-lg p-10 flex flex-col justify-between h-[100vh]">
         {/* Logo */}
@@ -75,7 +75,7 @@ export default function Congratulations() {
                   You have found over
                 </p>
                 <h1 className="text-[40px] md:text-[70px] font-bold">
-                  <CountUp end={18} suffix="%" duration={3} /> of hidden costs
+                  <CountUp end={18} suffix="%" duration={3} /> <br/>of hidden costs
                 </h1>
                 <p className="text-[18px] md:text-[30px]">
                   in crew management

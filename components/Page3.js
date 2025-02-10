@@ -18,7 +18,7 @@ export default function Page2() {
   };
 
   return (
-    <div className="bg-cover bg-center bg-[url('/home_banner.jpeg')] min-h-screen flex justify-center items-center">
+    <div className="bg-cover bg-[#00222F] min-h-screen flex justify-center items-center">
       {/* Content Section */}
       <div className="bg-[#00222F] w-full lg:max-w-[50%] text-white absolute text-center rounded-lg p-10 flex flex-col justify-between h-[100vh] container mx-auto">
         {/* Logo */}

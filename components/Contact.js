@@ -15,7 +15,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="bg-cover bg-center bg-[url('/home_banner.jpeg')] min-h-screen flex justify-center items-center">
+    <div className="bg-cover bg-[#00222F] min-h-screen flex justify-center items-center">
       {/* Content Section */}
       <div className="bg-[#00222F] w-full lg:max-w-[50%] text-white absolute text-center rounded-lg p-10 flex flex-col justify-between h-[100vh]">
          {/* Logo */}
@@ -50,7 +50,7 @@ export default function Contact() {
               />
             </div>
             {/* Navigation Buttons - Centered at the bottom */}
-        <div className="flex justify-center gap-4 mb-8">
+        <div className="flex justify-between gap-4 mb-8">
           {/* Back Button */}
           <button
             onClick={handleBack}

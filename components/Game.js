@@ -11,7 +11,7 @@ export default function Game() {
     text: "",
     position: {},
   });
-  const [timeLeft, setTimeLeft] = useState(60); // 1 minute in seconds
+  const [timeLeft, setTimeLeft] = useState(90); // 1 minute in seconds
   const router = useRouter();
 
   const handleContact = () => {
@@ -64,7 +64,7 @@ export default function Game() {
   }, [timeLeft, router]);
 
   // Progress calculation for the clock
-  const progress = (timeLeft / 60) * 100; // Percentage of time remaining
+  const progress = (timeLeft / 90) * 100; // Percentage of time remaining
 
   // Timer color based on time remaining
   const timerColor =
