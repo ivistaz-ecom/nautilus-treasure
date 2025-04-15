@@ -1,61 +1,43 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Import useRouter
-import { IoIosPlay } from "react-icons/io";
-import Form from "./Form";
-export default function Contact() {
-  const router = useRouter(); // Initialize the router
+import { useRouter } from "next/navigation";
+import Form from "./Form"; // Make sure this is responsive too
 
-  // Function to handle navigation back to the previous page
+export default function Contact() {
+  const router = useRouter();
+
   const handleBack = () => {
-    router.push("/page4"); // Navigates back to the home page (or any other page)
+    router.push("/page4");
   };
+
   const handleHome = () => {
-    router.push("/"); // Navigates back to the home page (or any other page)
+    router.push("/");
   };
 
   return (
-    <div className="bg-[#00222F] w-full flex justify-center items-center">
-      {/* Content Section */}
-      <div className="w-full bg-[#00222F] mt-[1100px]  text-white absolute text-center rounded-lg p-10 flex flex-col justify-between">
-         {/* Logo */}
-         <div className="flex justify-end mb-8">
-         <Link href="/"><Image src="/logo.svg" width={200} height={200} alt="Logo" /></Link>
-          </div>
-        <div className="flex flex-col justify-center items-center flex-grow">
-        
-          {/* Main Content */}
-          <div>
-            <h1 className="text-[40px] md:text-[70px] font-bold">Contact Us</h1>
+    <div className="bg-[#00222F] w-full flex justify-center items-center lg:py-10 py-10 px-4 md:px-10 overflow-x-hidden">
+      <div className="w-full max-w-4xl bg-[#00222F] text-white rounded-lg flex flex-col items-center gap-8 h-screen">
 
-            <div className="flex flex-col justify-center items-center">
-             <Form/>
-            </div>
-            {/* Navigation Buttons - Centered at the bottom */}
-        <div className="flex justify-between gap-4 mb-8">
-          {/* Back Button */}
-          <button
-            onClick={handleBack}
-            className="bg-[#008E9C] hover:border-[#008E9C] border hover:bg-[#fff] text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-5 py-2 rounded-full transition shadow-md"
-          >
-            <span className="flex gap-2 items-center">
-              <IoIosPlay />
-              Play Again
-            </span>
-          </button>
-          <button
-            onClick={handleHome}
-            className="bg-[#008E9C] hover:border-[#008E9C] border hover:bg-[#fff] text-white hover:text-[#008E9C] text-[16px] md:text-[18px] px-5 py-2 rounded-full transition shadow-md"
-          >
-            <span className="flex gap-2 items-center">
-              {/* <IoIosPlay /> */}
-              Back To Home
-            </span>
-          </button>
+        {/* Logo */}
+        <div className="w-full flex justify-end">
+          <Link href="/">
+            <Image src="/logo.svg" width={200} height={200} alt="Logo" />
+          </Link>
         </div>
-          </div>
+
+        {/* Title */}
+        <h1 className="text-[32px] md:text-[64px] font-bold text-center">Contact Us</h1>
+        {/* <p className="text-center text-base max-w-lg">
+          Let’s find out how we can reduce these for you
+        </p> */}
+
+        {/* Form */}
+        <div className="w-full">
+          <Form />
         </div>
+
+        
       </div>
     </div>
   );

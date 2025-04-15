@@ -20,7 +20,7 @@ export default function Page2() {
       <div className="bg-[#00222F] w-full lg:max-w-[50%] text-white absolute text-center rounded-lg p-10 flex flex-col justify-between h-[100vh]">
          {/* Logo */}
          <div className="flex justify-end mb-8">
-         <Link href="/"><Image src="/logo.svg" width={80} height={80} alt="Logo" /></Link>
+         <Link href="/"><Image src="/logo.svg" width={200} height={200} alt="Logo" /></Link>
           </div>
         <div className="flex flex-col justify-center items-center flex-grow">
           {/* <Image
