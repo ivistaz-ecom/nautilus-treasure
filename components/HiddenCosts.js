@@ -23,7 +23,7 @@ export default function HiddenCosts() {
         {/* Logo */}
         <div className="flex justify-end mb-8">
           <Link href="/">
-            <Image src="/logo.svg" width={80} height={80} alt="Logo" />
+            <Image src="/logo.svg" width={200} height={200} alt="Logo" />
           </Link>
         </div>
         <div className="flex flex-col justify-center items-center flex-grow">

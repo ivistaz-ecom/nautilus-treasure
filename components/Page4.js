@@ -32,7 +32,7 @@ export default function Page4() {
 
           {/* Logo */}
           <div className="flex justify-center mb-8">
-          <Link href="/"><Image src="/logo.svg" width={80} height={80} alt="Logo" /></Link>
+          <Link href="/"><Image src="/logo.svg" width={200} height={200} alt="Logo" /></Link>
           </div>
 
           {/* Main Content */}
